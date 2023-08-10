@@ -1,0 +1,50 @@
+
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. YOUR-PROGRAM-NAME.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+
+           01 TABELLA.
+               05 ARRAY OCCURS 30 TIMES INDEXED BY I.
+                 10 VALORE PIC 9(2).
+
+           01 DATO PIC 9(2).
+           01 DATO2 PIC 9(2).
+           01 DATO3 PIC 9(2).
+
+
+
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+
+           PERFORM RIEMPI-ARRAY
+           PERFORM STAMPA-ARRAY
+           PERFORM RICERCA-ELEMENTO
+
+
+           STOP RUN.
+
+
+       RIEMPI-ARRAY.
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I >10
+               DISPLAY "INSERISCI IL VALORE: "
+               ACCEPT DATO
+               MOVE DATO TO ARRAY(I)
+           END-PERFORM.
+
+       STAMPA-ARRAY.
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I >10
+               DISPLAY "VALORE: " ARRAY(I)
+           END-PERFORM.
+
+       RICERCA-ELEMENTO.
+           DISPLAY "INSERISCI IL VALORE DA CERCARE".
+           ACCEPT DATO3.
+
+           SET I TO 1.
+           SEARCH ARRAY AT END DISPLAY " NON TROVATO"
+           WHEN ARRAY(I) = DATO3
+           DISPLAY "TROVATO: " ARRAY(I)
+           END-SEARCH.
