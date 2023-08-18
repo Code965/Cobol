@@ -1,4 +1,3 @@
-
 # Cobol
 
 Cobol is a collection of cobol codes that I used to learn the language.
